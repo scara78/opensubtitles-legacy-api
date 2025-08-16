@@ -1,0 +1,64 @@
+services:
+  ola_ts:
+    image: ghcr.io/tailscale/tailscale:latest
+    hostname: ola
+    environment:
+      - TS_AUTHKEY=tskey-auth-XXXXXXXX
+      - TS_EXTRA_ARGS=--force-reauth
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+    volumes:
+      - ts_state:/var/lib/tailscale
+      - ./serve-config.json:/config/serve-config.json
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      - sys_module
+    restart: unless-stopped
+
+  ola:
+    container_name: ola
+    image: "kaotd/ola:0.1.0"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VERSION=0.1.0
+    volumes:
+      - logs:/app/logs
+      - ./env:/app/.env
+    restart: unless-stopped
+    network_mode: service:ola_ts
+    depends_on:
+      - ola_ts
+    env_file:
+      - .env
+    tty: true
+    stdin_open: true
+
+volumes:
+  logs:
+    driver_opts:
+      type: none
+      device: /home/kaotd/selfhosted/ola/logs
+      o: bind
+  data:
+    driver_opts:
+      type: none
+      device: /home/kaotd/selfhosted/ola/data
+      o: bind
+  subtitles:
+    driver_opts:
+      type: none
+      device: /home/kaotd/selfhosted/ola/subtitles
+      o: bind
+  ts_state:
+    driver_opts:
+      type: none
+      device: /home/kaotd/selfhosted/ola/ts_state
+      o: bind
+
+networks:
+  default:
+    enable_ipv6: true
