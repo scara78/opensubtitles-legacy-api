@@ -1,6 +1,10 @@
 # Use the official Ubuntu image as the base image
 FROM python:3.12.9-slim-bookworm
 
+LABEL org.opencontainers.image.source=https://github.com/KD-MM2/opensubtitles-legacy-api
+LABEL org.opencontainers.image.description="A FastAPI-based proxy service that provides backward compatibility with the old OpenSubtitles REST API while using the new OpenSubtitles JSON API."
+LABEL org.opencontainers.image.licenses=MIT
+
 # Set environment variables to avoid interactive prompts during build
 ENV DEBIAN_FRONTEND=noninteractive
 
