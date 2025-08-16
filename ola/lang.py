@@ -281,6 +281,69 @@ LANGUAGE_NAMES = {
     "div": "Divehi",
 }
 
+# Language mapping for SubDL (SubDL uses 2-letter codes like EN, FR, ES)
+SUBDL_LANGUAGE_MAP = {
+    # Map old OpenSubtitles codes to SubDL language codes
+    "eng": "EN",
+    "spa": "ES",
+    "fre": "FR",
+    "ger": "DE",
+    "ita": "IT",
+    "por": "PT",
+    "pob": "BR_PT",  # Brazilian Portuguese
+    "rus": "RU",
+    "chi": "ZH",
+    "zht": "ZH_BG",  # Traditional Chinese (Big5)
+    "jpn": "JA",
+    "kor": "KO",
+    "ara": "AR",
+    "hin": "HI",
+    "tha": "TH",
+    "vie": "VI",
+    "ind": "ID",
+    "may": "MS",  # Malay
+    "fil": "TL",  # Filipino/Tagalog
+    "dut": "NL",  # Dutch
+    "swe": "SV",  # Swedish
+    "nor": "NO",  # Norwegian
+    "dan": "DA",  # Danish
+    "fin": "FI",  # Finnish
+    "pol": "PL",  # Polish
+    "cze": "CS",  # Czech
+    "hun": "HU",  # Hungarian
+    "rum": "RO",  # Romanian
+    "bul": "BG",  # Bulgarian
+    "hrv": "HR",  # Croatian
+    "srp": "SR",  # Serbian
+    "ukr": "UK",  # Ukrainian (SubDL uses UK)
+    "gre": "EL",  # Greek
+    "tur": "TR",  # Turkish
+    "per": "FA",  # Persian/Farsi
+    "heb": "HE",  # Hebrew
+    "cat": "CA",  # Catalan
+    "eus": None,  # Basque - not supported by SubDL
+    "lat": None,  # Latin - not supported by SubDL
+    "slo": "SK",  # Slovak
+    "slv": "SL",  # Slovenian
+    "est": "ET",  # Estonian
+    "lav": "LV",  # Latvian
+    "lit": "LT",  # Lithuanian
+    "mac": "MK",  # Macedonian
+    "alb": "SQ",  # Albanian
+    "ben": "BN",  # Bengali
+    "bur": "MY",  # Burmese
+    "geo": "KA",  # Georgian
+    "ice": "IS",  # Icelandic
+    "kur": "KU",  # Kurdish
+    "mal": "ML",  # Malayalam
+    "tam": "TA",  # Tamil
+    "tel": "TE",  # Telugu
+    "urd": "UR",  # Urdu
+    "bel": "BE",  # Belarusian
+    "bos": "BS",  # Bosnian
+    "aze": "AZ",  # Azerbaijani
+}
+
 
 # Helper functions
 def get_new_api_language(old_code):
