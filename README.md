@@ -79,7 +79,7 @@ Get your Tailscale auth key from [Tailscale Admin Console](https://login.tailsca
 Create the necessary directories for data storage:
 
 ```bash
-mkdir -p data subtitles logs
+mkdir -p data subtitles logs ts_state
 ```
 
 ### 5. Deploy with Docker Compose
